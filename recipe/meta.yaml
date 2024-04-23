@@ -27,11 +27,13 @@ requirements:
     - wcwidth
     - xlrd
     - xlwt
+    - tabulate
   run:
     - openpyxl
     - wcwidth
     - xlrd
     - xlwt
+    - tabulate
     - colorama
     - colorlog
     - python >=3.8
