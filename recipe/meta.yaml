@@ -23,6 +23,10 @@ requirements:
     - pip
     - colorama
     - colorlog
+    - openpyxl
+    - wcwidth
+    - xlrd
+    - xlwt
   run:
     - openpyxl
     - wcwidth
