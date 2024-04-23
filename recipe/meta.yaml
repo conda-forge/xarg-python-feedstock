@@ -1,5 +1,5 @@
 {% set name = "xarg-python" %}
-{% set version = "1.4.5" %}
+{% set version = "1.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/xarg-python-{{ version }}.tar.gz
-  sha256: 3861cc8e2b630fb27cdddd08b9da6fce3b67a0ddcba14a0844630d0e1955e164
+  sha256: 3a235013e777984fd97a8b8d2deb11c2851d33196df97bf1f3f893f0f5d61eae
 
 build:
   entry_points:
@@ -23,7 +23,17 @@ requirements:
     - pip
     - colorama
     - colorlog
+    - openpyxl
+    - wcwidth
+    - xlrd
+    - xlwt
+    - tabulate
   run:
+    - openpyxl
+    - wcwidth
+    - xlrd
+    - xlwt
+    - tabulate
     - colorama
     - colorlog
     - python >=3.8
