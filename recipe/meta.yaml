@@ -1,5 +1,5 @@
 {% set name = "xarg-python" %}
-{% set version = "1.5" %}
+{% set version = "1.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/xarg-python-{{ version }}.tar.gz
-  sha256: 3a235013e777984fd97a8b8d2deb11c2851d33196df97bf1f3f893f0f5d61eae
+  sha256: da8c87ac51a0057849a4fc8f2a1996a1949fe502f03d9ca20aa467f19b9ef7ed
 
 build:
   entry_points:
