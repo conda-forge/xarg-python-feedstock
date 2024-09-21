@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/xarg-python-{{ version }}.tar.gz
   sha256: 6b000791a146c245e13d455a877124f780424f7a24365ddba41a250c318ed51e
+  patches:
+    - requirements.patch
 
 build:
   entry_points:
