@@ -30,6 +30,7 @@ requirements:
     - xlrd
     - xlwt
     - tabulate
+    - setuptools
   run:
     - openpyxl
     - wcwidth
