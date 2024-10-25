@@ -1,5 +1,5 @@
 {% set name = "xarg-python" %}
-{% set version = "1.6.2" %}
+{% set version = "1.6.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/xarg-python-{{ version }}.tar.gz
-  sha256: abca2e0647b7dfd599a981861dc056e022c8407b87db63f51e265a0c04618a22
+  sha256: 0ddae3348c7a193dd788dcf21262e298cb50e7531f95e83d3a8a2b135fccb7eb
   patches:
     - requirements.patch
 
@@ -31,7 +31,9 @@ requirements:
     - xlwt
     - tabulate
     - setuptools
+    - filelock
   run:
+    - filelock
     - openpyxl
     - wcwidth
     - xlrd
