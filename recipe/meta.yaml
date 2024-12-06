@@ -1,13 +1,13 @@
 {% set name = "xarg-python" %}
-{% set version = "1.7.0" %}
+{% set version = "1.7.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/xarg-python-{{ version }}.tar.gz
-  sha256: c769eaa28960cc20f319180456224650847f11fe116a7bfa8a6709185908cb38
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: e2b606c5134b3ea10d63d4f46874c2a2d8d127b6a5cacaa3b453dc839e22dd8a
   patches:
     - requirements.patch
 
@@ -16,7 +16,7 @@ build:
     - xargcomplete = xarg.complete:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
