@@ -1,0 +1,75 @@
+schema_version: 1
+
+context:
+  name: xarg-python
+  version: "1.8.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
+  sha256: 11f20e13b839ec7d0362fbd8fb6f64d0f749fecfbe68bc9df737fc563ed83c70
+  patches:
+    - requirements.patch
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - xargcomplete = xarg.complete:main
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - argcomplete
+    - pip
+    - colorama
+    - colorlog
+    - openpyxl
+    - wcwidth
+    - xlrd
+    - xlwt
+    - tabulate
+    - setuptools
+    - filelock
+  run:
+    - filelock
+    - openpyxl
+    - wcwidth
+    - xlrd
+    - xlwt
+    - tabulate
+    - colorama
+    - colorlog
+    - python >=${{ python_min }}
+    - argcomplete >=3.2.1
+    - tabulate
+
+tests:
+  - python:
+      imports:
+        - xarg
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - xargcomplete --help
+
+about:
+  summary: Simple command-line tool based on argparse.
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/bondbox/xarg-python/
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
